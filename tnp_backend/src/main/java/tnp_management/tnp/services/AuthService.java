@@ -100,7 +100,7 @@ public class AuthService {
 
         User toBecreated =  new User();
         toBecreated.setEmail(dto.getEmail());
-        toBecreated.setPassword(passwordEncoder.encode(toBecreated.getPassword()));
+        toBecreated.setPassword(passwordEncoder.encode(dto.getPassword()));
         toBecreated.setRole(Role.STUDENT);
         userRepository.save(toBecreated);
     }
