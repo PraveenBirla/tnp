@@ -1,5 +1,6 @@
 package tnp_management.tnp.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +17,7 @@ public class ContactController {
 
     private final KafkaProducerService kafkaProducerService;
 
-    public ContactController(KafkaProducerService kafkaProducerService) {
+    public ContactController(@Autowired(required = false) KafkaProducerService kafkaProducerService) {
         this.kafkaProducerService = kafkaProducerService;
 
     }

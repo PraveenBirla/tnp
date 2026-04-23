@@ -1,6 +1,7 @@
 package tnp_management.tnp.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import tnp_management.tnp.dto.PlacementDriveMessageDTO;
 
 @Profile("local")
 @Service
+@ConditionalOnProperty(name = "kafka.enabled", havingValue = "true")
 public class KafkaProducerService {
 
     private final KafkaTemplate<String,  Object> kafkaTemplate;

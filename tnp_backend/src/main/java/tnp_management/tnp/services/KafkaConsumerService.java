@@ -2,6 +2,7 @@ package tnp_management.tnp.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @Profile("local")
 @Service
+@ConditionalOnProperty(name = "kafka.enabled", havingValue = "true")
 public class KafkaConsumerService {
 
 
