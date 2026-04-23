@@ -1,0 +1,12 @@
+target/*
+!target/*.jar
+.git
+.idea
+.vscode
+*.iml
+node_modulesz-p zt1`
+
+application-dev.properties
+
+.env
+docker-compose.yml

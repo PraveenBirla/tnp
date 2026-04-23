@@ -1,0 +1,42 @@
+package tnp_management.tnp.Entities;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDate;
+
+@Entity
+@Table(name="placed_students",
+ indexes = {
+         @Index(name="idx_placed_student" , columnList = "student_id" )
+         })
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class PlacedStudent {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "student_id")
+    private StudentProfile studentProfile;
+
+    @Column(name = "company_name" , nullable = false)
+    private String companyName;
+
+    @Column(name = "role" , nullable = false)
+    private String role;
+
+    @Column(name = "package" , nullable = false)
+    private Double packageAmount;
+
+    @Column(name = "placement_date" , nullable = false)
+    private LocalDate placementDate;
+
+}
