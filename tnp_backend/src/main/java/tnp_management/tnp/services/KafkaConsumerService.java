@@ -1,6 +1,8 @@
 package tnp_management.tnp.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import tnp_management.tnp.Entities.StudentProfile;
@@ -13,12 +15,14 @@ import tnp_management.tnp.repositories.UserRepository;
 
 import java.util.List;
 
+@Profile("local")
 @Service
 public class KafkaConsumerService {
 
 
     private final EmailService service;
     private final StudentProfileRepository studentProfileRepository;
+    @Autowired(required = false)
     private final KafkaProducerService kafkaProducerService;
 
     public KafkaConsumerService(EmailService service, StudentProfileRepository studentProfileRepository,  KafkaProducerService kafkaProducerService) {

@@ -1,12 +1,14 @@
 package tnp_management.tnp.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import tnp_management.tnp.dto.ContactMessageDTO;
 import tnp_management.tnp.dto.DriveEmailRequestDTO;
 import tnp_management.tnp.dto.PlacementDriveMessageDTO;
 
+@Profile("local")
 @Service
 public class KafkaProducerService {
 

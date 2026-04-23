@@ -3,6 +3,7 @@ package tnp_management.tnp.services;
 
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,6 +29,7 @@ public class PlacementDriveService {
     private final PlacementDriveRepository placementDriveRepository;
     private final StudentProfileRepository studentProfileRepository;
     private final UserRepository userRepository;
+    @Autowired(required = false)
     private final KafkaProducerService kafkaProducerService;
 
     public PlacementDriveService(ModelMapper modelMapper, PlacementDriveRepository placementDriveRepository, StudentProfileRepository studentProfileRepository, UserRepository userRepository, KafkaProducerService kafkaProducerService) {
