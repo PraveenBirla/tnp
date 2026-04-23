@@ -29,10 +29,10 @@ public class PlacementDriveService {
     private final PlacementDriveRepository placementDriveRepository;
     private final StudentProfileRepository studentProfileRepository;
     private final UserRepository userRepository;
-    @Autowired(required = false)
-    private final KafkaProducerService kafkaProducerService;
 
-    public PlacementDriveService(ModelMapper modelMapper, PlacementDriveRepository placementDriveRepository, StudentProfileRepository studentProfileRepository, UserRepository userRepository, KafkaProducerService kafkaProducerService) {
+    private  final KafkaProducerService kafkaProducerService;
+
+    public PlacementDriveService(ModelMapper modelMapper, PlacementDriveRepository placementDriveRepository, StudentProfileRepository studentProfileRepository, UserRepository userRepository, @Autowired(required = false) KafkaProducerService kafkaProducerService) {
         this.modelMapper = modelMapper;
         this.placementDriveRepository = placementDriveRepository;
         this.studentProfileRepository = studentProfileRepository;

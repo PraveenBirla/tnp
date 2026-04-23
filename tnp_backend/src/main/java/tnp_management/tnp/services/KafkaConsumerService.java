@@ -22,10 +22,10 @@ public class KafkaConsumerService {
 
     private final EmailService service;
     private final StudentProfileRepository studentProfileRepository;
-    @Autowired(required = false)
-    private final KafkaProducerService kafkaProducerService;
 
-    public KafkaConsumerService(EmailService service, StudentProfileRepository studentProfileRepository,  KafkaProducerService kafkaProducerService) {
+    private  final  KafkaProducerService kafkaProducerService;
+
+    public KafkaConsumerService(EmailService service, StudentProfileRepository studentProfileRepository, @Autowired(required = false) KafkaProducerService kafkaProducerService) {
 
         this.service = service;
         this.studentProfileRepository = studentProfileRepository;
